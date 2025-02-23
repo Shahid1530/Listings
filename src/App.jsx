@@ -10,6 +10,8 @@ import Listing_specific_page from "./components/Listing_specific_page";
 import Pricing from "./components/Pricing";
 import Listing_page from "./components/Listing_page";
 import "./App.css";
+import PropertyForm from "./components/Propertyform";
+import ProductList from "./components/ProductList";
 
 // Loader function to fetch blog post data dynamically
 const blogPostLoader = async ({ params }) => {
@@ -33,6 +35,8 @@ const router = createBrowserRouter([
   { path: "/categories", element: <Listing_categories /> },
   { path: "/pricing", element: <Pricing /> },
   { path: "/listings", element: <Listing_page /> },
+  { path: "/add", element: <PropertyForm/>},
+  { path: "/edit", element: <ProductList/>},
   {
     path: "/listing/:id",
     element: <Listing_specific_page />,

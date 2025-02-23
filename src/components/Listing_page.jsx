@@ -1,6 +1,26 @@
-import Navbar from './Navbar'
 
+import { useState, useEffect } from "react";
+import Navbar from "./Navbar";
 function Listing_page() {
+  const [products, setProducts] = useState([]);
+ 
+    useEffect(() => {
+
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/api/products/");
+          if (!response.ok) throw new Error("Failed to fetch products");
+  
+          const data = await response.json();
+          setProducts(data);
+          
+        } catch (error) {
+          console.log(error)
+        }
+      };
+  
+      fetchProducts();
+    }, []);
   return (
 <>
 <div>
@@ -296,228 +316,40 @@ function Listing_page() {
                 </div>
               </div>
             </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="green" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-72" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Prime Realty</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (212) 555-1234</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 123 Main Street
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="red" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-73" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Urban Nest Realty</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (415) 555-5678</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 456 Cityscape Ave
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="orange" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-74" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Luxury Living Estates</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (310) 555-7890</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 789 Elite Blvd
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="green" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-75" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Green Acres Realty</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (512) 555-2345</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 234 Countryside Road
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="red" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-76" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Coastal Homes Real Estate</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (305) 555-5678</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 567 Shoreline Dr
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="featured_listing_item_2 list_view">
-                <div className="featured_listing_item_img">
-                  <img src="" alt="listing" className="img-fluid w-100" />
-                  <a className="orange" href="">Featured</a>
-                  <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                  <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-77" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img src="" alt="User" className="img-fluid w-100" />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href="">Skyline Properties</a>
-                  <ul>
-                    <li><i className="fas fa-phone-alt" aria-hidden="true" />
-                      Call : (312) 555-8901</li>
-                    <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> 890 Skyline Ave
-                    </li>
-                    <li><i className="fas fa-calendar-alt" aria-hidden="true" />
-                      7 months ago
-                    </li>
-                  </ul>
-                  <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
-                    Featured</a>
-                  <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
-                    Verified</a>
-                </div>
-              </div>
-            </div>
+            
+            {products.map((product) => (
+              <>
+                 <div className="col-xl-12">
+                 <div className="featured_listing_item_2 list_view">
+                   <div className="featured_listing_item_img">
+                     <img src={product.image} alt="listing" className="img-fluid w-100" />
+                     <a className="green" href="">Featured</a>
+                     <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
+                     <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-72" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
+                   </div>
+                   <div className="featured_listing_item_text">
+                   
+                    
+                     <a className="title" href="">{product.name}</a>
+                     <ul>
+                       <li><i className="fas fa-phone-alt" aria-hidden="true" />
+                         Call : {product.contact}</li>
+                       <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> {product.location}
+                       </li>
+                     
+                     </ul>
+                     <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
+                       Featured</a>
+                     <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
+                       Verified</a>
+                   </div>
+                 </div>
+               </div>
+              </>
+
+          ))}
+       
+         
             <section id="wsus__map_popup">
               <div className="modal fade" id="listngPopUp-72" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">

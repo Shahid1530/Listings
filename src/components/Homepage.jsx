@@ -1,5 +1,26 @@
 import Navbar from "./Navbar";
+import { useState, useEffect } from "react";
+
 function Homepage() {
+  const [products, setProducts] = useState([]);
+ 
+    useEffect(() => {
+
+      const fetchProducts = async () => {
+        try {
+          const response = await fetch("http://127.0.0.1:5000/api/products/");
+          if (!response.ok) throw new Error("Failed to fetch products");
+  
+          const data = await response.json();
+          setProducts(data);
+          
+        } catch (error) {
+          console.log(error)
+        }
+      };
+  
+      fetchProducts();
+    }, []);
     return (
       <>
        <>
@@ -982,912 +1003,139 @@ function Homepage() {
             </div>
           </div>
           <div className="row">
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="green" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-72"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Prime Realty
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (212) 555-1234
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      123 Main Street
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-72"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Prime Realty</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (212) 555-1234
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@primerealtyexample.com
-                                </a>
-                                <p>
-                                  Residential and commercial properties in prime
-                                  locations.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="red" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-73"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Urban Nest Realty
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (415) 555-5678
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      456 Cityscape Ave
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-73"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Urban Nest Realty</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (415) 555-5678
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@urbannestexample.com
-                                </a>
-                                <p>
-                                  Modern urban living spaces with top-notch
-                                  amenities.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="orange" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-74"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Luxury Living Estates
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (310) 555-7890
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      789 Elite Blvd
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-74"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Luxury Living Estates</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (310) 555-7890
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@luxurylivingexample.com
-                                </a>
-                                <p>
-                                  Exclusive luxury homes and estates with
-                                  premium features.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="green" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-75"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Green Acres Realty
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (512) 555-2345
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      234 Countryside Road
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-75"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Green Acres Realty</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (512) 555-2345
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@greenacresexample.com
-                                </a>
-                                <p>
-                                  Rural and farm properties with serene
-                                  countryside views.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="red" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-76"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Coastal Homes Real Estate
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (305) 555-5678
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      567 Shoreline Dr
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-76"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Coastal Homes Real Estate</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (305) 555-5678
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@coastalhomesexample.com
-                                </a>
-                                <p>
-                                  Beachfront and coastal properties with
-                                  stunning ocean views.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div className="featured_listing_item_2">
-                <div className="featured_listing_item_img">
-                  <img
-                    src= " "
-                    alt="listing"
-                    className="img-fluid w-100"
-                  />
-                  <a className="orange" href=" ">
-                    Featured
-                  </a>
-                  <span className="love">
-                    <a
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      href=" "
-                    >
-                      <i className="fas fa-heart" aria-hidden="true" />
-                    </a>
-                  </span>
-                  <a
-                    className="map"
-                    data-bs-toggle="modal"
-                    data-bs-target="#listngPopUp-77"
-                    href=" "
-                  >
-                    <i className="fal fas fa-eye" aria-hidden="true" />
-                  </a>
-                </div>
-                <div className="featured_listing_item_text">
-                  <span className="author">
-                    <img
-                      src= " "
-                      alt="User"
-                      className="img-fluid w-100"
-                    />
-                  </span>
-                  <p className="rating">
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <i className="far fa-star" aria-hidden="true" />
-                    <span>(0 Review)</span>
-                  </p>
-                  <a className="title" href=" ">
-                    Skyline Properties
-                  </a>
-                  <ul>
-                    <li>
-                      <i className="fas fa-phone-alt" aria-hidden="true" /> Call
-                      : (312) 555-8901
-                    </li>
-                    <li>
-                      <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
-                      890 Skyline Ave
-                    </li>
-                    <li>
-                      <i className="fas fa-calendar-alt" aria-hidden="true" />7
-                      months ago
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <section id="wsus__map_popup">
-                <div
-                  className="modal fade"
-                  id="listngPopUp-77"
-                  tabIndex={-1}
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <button
-                        type="button"
-                        className="btn-close popup_close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <i className="far fa-times" aria-hidden="true" />
-                      </button>
-                      <div className="modal-body">
-                        <div className="row">
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content">
-                              <img
-                                src= " "
-                                alt="images"
-                                className="img-fluid w-100"
-                              />
-                              <div className="map_popup_text">
-                                <span>
-                                  <i
-                                    className="far fa-star"
-                                    aria-hidden="true"
-                                  />
-                                  Featured
-                                </span>
-                                <span className="red">
-                                  <i
-                                    className="far fa-check"
-                                    aria-hidden="true"
-                                  />
-                                  Verified
-                                </span>
-                                <h5>Skyline Properties</h5>
-                                <a className="call" href=" ">
-                                  <i
-                                    className="fal fa-phone-alt"
-                                    aria-hidden="true"
-                                  />
-                                  (312) 555-8901
-                                </a>
-                                <a className="mail" href=" ">
-                                  <i
-                                    className="fal fa-envelope"
-                                    aria-hidden="true"
-                                  />
-                                  info@skylinepropertiesexample.com
-                                </a>
-                                <p>
-                                  High-rise and city living with breathtaking
-                                  cityscape views.
-                                </p>
-                                <a className="read_btn" href=" ">
-                                  Read More
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-12 col-xl-12 col-md-12">
-                            <div className="map_popup_content_map">
-                              <iframe
-                                src= " "
-                                width={600}
-                                height={450}
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
+          {products.map((product) => (
+            <>
+           <div className="col-xl-4 col-md-6">
+           <div className="featured_listing_item_2">
+             <div className="featured_listing_item_img">
+               <img
+                 src= {product.image}
+                 alt="listing"
+                 className="img-fluid w-100"
+               />
+               <a className="green" href=" ">
+                 Featured
+               </a>
+              
+               <a
+                 className="map"
+                 data-bs-toggle="modal"
+                 data-bs-target="#listngPopUp-72"
+                 href=" "
+               >
+                 <i className="fal fas fa-eye" aria-hidden="true" />
+               </a>
+             </div>
+             <div className="featured_listing_item_text">
+            
+       
+               <a className="title" href=" ">
+                {product.name}
+               </a>
+               <ul>
+                 <li>
+                   <i className="fas fa-phone-alt" aria-hidden="true" /> Call
+                   {product.contact}
+                 </li>
+                 <li>
+                   <i className="fas fa-map-marker-alt" aria-hidden="true" />{" "}
+                   {product.location}
+                 </li>
+                 
+               </ul>
+             </div>
+           </div>
+           <section id="wsus__map_popup">
+             <div
+               className="modal fade"
+               id="listngPopUp-72"
+               tabIndex={-1}
+               aria-labelledby="exampleModalLabel"
+               aria-hidden="true"
+             >
+               <div className="modal-dialog">
+                 <div className="modal-content">
+                   <button
+                     type="button"
+                     className="btn-close popup_close"
+                     data-bs-dismiss="modal"
+                     aria-label="Close"
+                   >
+                     <i className="far fa-times" aria-hidden="true" />
+                   </button>
+                   <div className="modal-body">
+                     <div className="row">
+                       <div className="col-12 col-xl-12 col-md-12">
+                         <div className="map_popup_content">
+                           <img
+                             src= " "
+                             alt="images"
+                             className="img-fluid w-100"
+                           />
+                           <div className="map_popup_text">
+                             <span>
+                               <i
+                                 className="far fa-star"
+                                 aria-hidden="true"
+                               />
+                               Featured
+                             </span>
+                             <span className="red">
+                               <i
+                                 className="far fa-check"
+                                 aria-hidden="true"
+                               />
+                               Verified
+                             </span>
+                             <h5>Prime Realty</h5>
+                             <a className="call" href=" ">
+                               <i
+                                 className="fal fa-phone-alt"
+                                 aria-hidden="true"
+                               />
+                               (212) 555-1234
+                             </a>
+                             <a className="mail" href=" ">
+                               <i
+                                 className="fal fa-envelope"
+                                 aria-hidden="true"
+                               />
+                               info@primerealtyexample.com
+                             </a>
+                             <p>
+                               Residential and commercial properties in prime
+                               locations.
+                             </p>
+                             <a className="read_btn" href=" ">
+                               Read More
+                             </a>
+                           </div>
+                         </div>
+                       </div>
+                       <div className="col-12 col-xl-12 col-md-12">
+                         <div className="map_popup_content_map">
+                           <iframe
+                             src= " "
+                             width={600}
+                             height={450}
+                             style={{ border: 0 }}
+                             allowFullScreen=""
+                             loading="lazy"
+                             referrerPolicy="no-referrer-when-downgrade"
+                           />
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </section>
+         </div>
+         </>
+          ))}
+          
+           
           </div>
         </div>
       </section>
