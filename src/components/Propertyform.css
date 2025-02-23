@@ -1,4 +1,5 @@
 /* PropertyForm.css */
+
 .container2 {
     max-width: 500px;
     margin: 40px auto;
@@ -7,6 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 100px;
   }
   
   h2 {

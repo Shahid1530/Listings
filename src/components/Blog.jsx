@@ -7,66 +7,9 @@ function Blog() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-xl-6 col-lg-7 d-none d-lg-block">
-          <ul className="wsus__topbar_left">
-            <li><a href=""><i className="fal fa-envelope" aria-hidden="true" />
-                support@websolutionus.com</a></li>
-            <li><a href=""><i className="fal fa-phone-alt" aria-hidden="true" />111-233-1273</a></li>
-          </ul>
+      
         </div>
-        <div className="col-xl-6 col-lg-5">
-          <ul className="wsus__topbar_right">
-            <li><a href=""><i className="fab fa-facebook-f" aria-hidden="true" /></a></li>
-            <li><a href=""><i className="fab fa-twitter" aria-hidden="true" /></a></li>
-            <li><a href=""><i className="fab fa-linkedin-in" aria-hidden="true" /></a></li>
-            <li>
-              <a href="" className="fab fa-youtube" aria-hidden="true" />
-            </li>
-            <li>
-              <a href="" className="fab fa-instagram" aria-hidden="true" />
-            </li>
-            <li className="language_login">
-              <form id="setLanguageHeader" action="https://demo.websolutionus.com/dirlist/set-language">
-                <select className="select_js" name="code" style={{"display":"none"}}>
-                  <option value="en" selected>
-                    English</option>
-                  <option value="ar">
-                    Arabic</option>
-                </select><div className="nice-select select_js" tabIndex={0}><span className="current">
-                    English</span><ul className="list"><li data-value="en" className="option selected">
-                      English</li><li data-value="ar" className="option">
-                      Arabic</li></ul></div>
-              </form>
-            </li>
-            <li className="language_login currency">
-              <form id="setCurrencyHeader" action="https://demo.websolutionus.com/dirlist/set-currency" >
-                <select className="select_js" name="currency" style={{"display":"none"}}>
-                  <option value="USD" selected>
-                    $-USD</option>
-                  <option value="NGN">
-                    ₦-Naira</option>
-                  <option value="INR">
-                    ₹-Rupee</option>
-                  <option value="PHP">
-                    ₱-Peso</option>
-                  <option value="CAD">
-                    $-CAD</option>
-                  <option value="BDT">
-                    ৳-Taka</option>
-                </select><div className="nice-select select_js" tabIndex={0}><span className="current">
-                    $-USD</span><ul className="list"><li data-value="USD" className="option selected">
-                      $-USD</li><li data-value="NGN" className="option">
-                      ₦-Naira</li><li data-value="INR" className="option">
-                      ₹-Rupee</li><li data-value="PHP" className="option">
-                      ₱-Peso</li><li data-value="CAD" className="option">
-                      $-CAD</li><li data-value="BDT" className="option">
-                      ৳-Taka</li></ul></div>
-              </form>
-            </li>
-            <li className="language_login">
-              <a className="wsus__topbar_login" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Login</a>
-            </li>
-          </ul>
-        </div>
+       
       </div>
     </div>
   </section>

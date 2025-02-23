@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import "./PropertyForm.css";
-
+import Navbar from "./Navbar";
 const PropertyForm = () => {
   const [formData, setFormData] = useState({
     category: "apartments",
@@ -37,6 +37,8 @@ const PropertyForm = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="container2">
       <h2>Property Submission Form</h2>
       <form onSubmit={handleSubmit}>
@@ -73,6 +75,7 @@ const PropertyForm = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
+    </>
   );
 };
 
