@@ -1,6 +1,9 @@
 
 import { useState, useEffect } from "react";
+import { FaBusinessTime, FaHeart ,FaLocationArrow,FaPhone,FaUser, FaUsers} from "react-icons/fa";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { FaAccessibleIcon, FaAmazon } from "react-icons/fa6";
 function Listing_page() {
   const [products, setProducts] = useState([]);
  
@@ -231,32 +234,8 @@ function Listing_page() {
           <div className="row">
             <div className="col-xl-12">
               <div className="wsus__property_topbar">
-                <div className="wsus__property_topbar_left">
-                  <ul>
-                    <li><a className=" " href=""><i className="fas fa-th" aria-hidden="true" /></a></li>
-                    <li><a className=" wsus_active_bar" href=""><i className="fas fa-list-ul" aria-hidden="true" /></a></li>
-                  </ul>
-                </div>
-                <div className="wsus__property_topbar_right">
-                  <div className="wp_search_area">
-                    <select className="select_2 select2-hidden-accessible" name="state" id="sortingId" data-select2-id="select2-data-sortingId" tabIndex={-1} aria-hidden="true">
-                      <option value={6} data-select2-id="select2-data-8-czqn">
-                        Default Order</option>
-                      <option value={1}>
-                        Most Views</option>
-                      <option value={2}>
-                        Featured</option>
-                      <option value={3}>
-                        Verified</option>
-                      <option value={4}>
-                        Oldest Listing</option>
-                      <option value={5}>
-                        New Listing</option>
-                    </select><span className="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-7-m50k" style={{"width":"130.4px"}}><span className="selection"><span className="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabIndex={0} aria-disabled="false" aria-labelledby="select2-sortingId-container" aria-controls="select2-sortingId-container"><span className="select2-selection__rendered" id="select2-sortingId-container" role="textbox" aria-readonly="true" title="
-                                              Default Order">
-                            Default Order</span><span className="select2-selection__arrow" role="presentation"><b role="presentation" /></span></span></span><span className="dropdown-wrapper" aria-hidden="true" /></span>
-                  </div>
-                </div>
+              
+                
               </div>
             </div>
             
@@ -267,23 +246,23 @@ function Listing_page() {
                    <div className="featured_listing_item_img">
                      <img src={product.image} alt="listing" className="img-fluid w-100" />
                      <a className="green" href="">Featured</a>
-                     <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><i className="fas fa-heart" aria-hidden="true" /></a></span>
-                     <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-72" href=""><i className="fal fas fa-eye" aria-hidden="true" /></a>
+                     <span className="love"><a data-bs-toggle="modal" data-bs-target="#exampleModal" href=""><FaHeart className="text-red-500" /></a></span>
+                     <a className="map" data-bs-toggle="modal" data-bs-target="#listngPopUp-72" href=""><FaBusinessTime className="fal fas fa-eye" aria-hidden="true" /></a>
                    </div>
                    <div className="featured_listing_item_text">
                    
                     
                      <a className="title" href="">{product.name}</a>
                      <ul>
-                       <li><i className="fas fa-phone-alt" aria-hidden="true" />
+                       <li><FaPhone className="fas fa-phone-alt" style={{margin:"5px"}}  aria-hidden="true" />
                          Call : {product.contact}</li>
-                       <li><i className="fas fa-map-marker-alt" aria-hidden="true" /> {product.location}
+                       <li><FaLocationArrow className="fas fa-map-marker-alt" aria-hidden="true" /> {product.location}
                        </li>
                      
                      </ul>
-                     <a className="future_verify" href=""><i className="far fa-star" aria-hidden="true" />
+                     <a className="future_verify" href=""><FaHeart style={{margin:"5px"}} className="far fa-star" aria-hidden="true" />
                        Featured</a>
-                     <a className="future_verify red" href=""><i className="far fa-check" aria-hidden="true" />
+                     <a className="future_verify red" href=""><FaUser style={{margin:"5px"}} className="far fa-check" aria-hidden="true" />
                        Verified</a>
                    </div>
                  </div>
@@ -306,7 +285,7 @@ function Listing_page() {
                             <div className="map_popup_text">
                               <span><i className="far fa-star" aria-hidden="true" />
                                 Featured</span>
-                              <span className="red"><i className="far fa-check" aria-hidden="true" />
+                              <span className="red"><FaUser className="far fa-check" aria-hidden="true" />
                                 Verified</span>
                               <h5>Prime Realty</h5>
                               <a className="call" href=""><i className="fal fa-phone-alt" aria-hidden="true" />
@@ -517,117 +496,7 @@ function Listing_page() {
   {/*==========================
    FOOTER PART START
     ===========================*/}
-  <footer className="footer_2">
-    <div className="container">
-      <div className="footer_2_subscription_bg" style={{"background":"url('https://demo.websolutionus.com/dirlist/user/images/subscribe_bg.jpg')"}}>
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="footer_2_subs_text">
-              <h2>Subscribe to Newsletter</h2>
-              <p>Subscribe to get update and information. </p>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <form className="footer_2_subs_form" id="subscribeForm">
-              <input id="subscribe_email" name="email" type="text" placeholder="Email address here" />
-              <button className="common_btn_2" type="submit" id="subscribeBtn"> <i id="subscribe-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="footer_2_bg" style={{"background":"url('https://dirlist.websolutionus.com/user/images/footer_2_bg.jpg')"}}>
-      <div className="footer_2_overlay">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-xl-4 col-md-6 col-lg-4">
-              <div className="footer_text">
-                <a className="footer_logo" href="">
-                  <img src="" alt />
-                </a>
-                <p>Lorem ipsum dolor sit amet, per mollis aeterno nostrud in, nam timeam fastidii eu. Commodo nonumes vim eu. Quo indoctum voluptatibus delicatissimi no. Eu cum dico melius. Cum impetus scribentur ad.</p>
-                <ul className="footer_icon">
-                  <ul className="footer_social">
-                    <li><a href=""><i className="fab fa-facebook-f" aria-hidden="true" /></a></li>
-                    <li><a href=""><i className="fab fa-twitter" aria-hidden="true" /></a></li>
-                    <li>
-                      <a href=""><i className="fab fa-linkedin" aria-hidden="true" /></a>
-                    </li>
-                    <li>
-                      <a href=""> <i className="fab fa-youtube" aria-hidden="true" /></a>
-                    </li>
-                    <li>
-                      <a href=""> <i className="fab fa-instagram" aria-hidden="true" /></a>
-                    </li>
-                  </ul>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-3 col-md-6 col-lg-3">
-              <div className="footer_text">
-                <h3>Important Links</h3>
-                <ul className="footer_link">
-                  <li><a href="">
-                      Home
-                    </a></li>
-                  <li><a href="">
-                      Listings Categories
-                    </a></li>
-                  <li><a href="">
-                      Listings
-                    </a></li>
-                  <li><a href="">
-                      Blog
-                    </a></li>
-                  <li><a href="">
-                      Pricing Plan
-                    </a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-lg-4">
-              <div className="footer_text footer_contact">
-                <h3>Contact Us</h3>
-                <ul className="footer_link">
-                  <li>
-                    <p>
-                      <i className="far fa-map-marker-alt" aria-hidden="true" />
-                      San Francisco City Hall, San Francisco, CA
-                    </p>
-                  </li>
-                  <li>
-                    <a href="">
-                      <i className="fal fa-envelope" aria-hidden="true" />
-                      support@websolutionus.com
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <i className="fal fa-phone-alt" aria-hidden="true" />
-                      111-233-1273
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="footer_bottom">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-            <p>Copyright 2025, Websolutionus. All Rights Reserved.</p>
-          </div>
-          <div className="col-lg-6">
-            <ul className="footer_bottom_link">
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+<Footer/>
   {/*==========================
    FOOTER PART END
     ===========================*/}

@@ -1,3 +1,4 @@
+import Footer from './Footer'
 import Navbar from './Navbar'
 
 function Pricing() {
@@ -195,117 +196,7 @@ function Pricing() {
   {/*==========================
    FOOTER PART START
     ===========================*/}
-  <footer className="footer_2">
-    <div className="container">
-      <div className="footer_2_subscription_bg" style={{"background":"url('https://demo.websolutionus.com/dirlist/user/images/subscribe_bg.jpg')"}}>
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="footer_2_subs_text">
-              <h2>Subscribe to Newsletter</h2>
-              <p>Subscribe to get update and information.</p>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <form className="footer_2_subs_form" id="subscribeForm">
-              <input id="subscribe_email" name="email" type="text" placeholder="Email address here" />
-              <button className="common_btn_2" type="submit" id="subscribeBtn"> <i id="subscribe-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="footer_2_bg" style={{"background":"url('https://dirlist.websolutionus.com/user/images/footer_2_bg.jpg')"}}>
-      <div className="footer_2_overlay">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-xl-4 col-md-6 col-lg-4">
-              <div className="footer_text">
-                <a className="footer_logo" href="">
-                  <img src="" alt />
-                </a>
-                <p>Lorem ipsum dolor sit amet, per mollis aeterno nostrud in, nam timeam fastidii eu. Commodo nonumes vim eu. Quo indoctum voluptatibus delicatissimi no. Eu cum dico melius. Cum impetus scribentur ad.</p>
-                <ul className="footer_icon">
-                  <ul className="footer_social">
-                    <li><a href=""><i className="fab fa-facebook-f" aria-hidden="true" /></a></li>
-                    <li><a href=""><i className="fab fa-twitter" aria-hidden="true" /></a></li>
-                    <li>
-                      <a href=""><i className="fab fa-linkedin" aria-hidden="true" /></a>
-                    </li>
-                    <li>
-                      <a href=""> <i className="fab fa-youtube" aria-hidden="true" /></a>
-                    </li>
-                    <li>
-                      <a href=""> <i className="fab fa-instagram" aria-hidden="true" /></a>
-                    </li>
-                  </ul>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-3 col-md-6 col-lg-3">
-              <div className="footer_text">
-                <h3>Important Links</h3>
-                <ul className="footer_link">
-                  <li><a href="">
-                      Home
-                    </a></li>
-                  <li><a href="">
-                      Listings Categories
-                    </a></li>
-                  <li><a href="">
-                      Listings
-                    </a></li>
-                  <li><a href="">
-                      Blog
-                    </a></li>
-                  <li><a href="">
-                      Pricing Plan
-                    </a></li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-lg-4">
-              <div className="footer_text footer_contact">
-                <h3>Contact Us</h3>
-                <ul className="footer_link">
-                  <li>
-                    <p>
-                      <i className="far fa-map-marker-alt" aria-hidden="true" />
-                      San Francisco City Hall, San Francisco, CA
-                    </p>
-                  </li>
-                  <li>
-                    <a href="">
-                      <i className="fal fa-envelope" aria-hidden="true" />
-                      support@websolutionus.com
-                    </a>
-                  </li><li>
-                    <a href="">
-                      <i className="fal fa-phone-alt" aria-hidden="true" />
-                      111-233-1273
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="footer_bottom">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-            <p>Copyright 2025, Websolutionus. All Rights Reserved.</p>
-          </div>
-          <div className="col-lg-6">
-            <ul className="footer_bottom_link">
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+ <Footer/>
   {/*==========================
    FOOTER PART END
     ===========================*/}

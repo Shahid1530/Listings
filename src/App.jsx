@@ -12,6 +12,9 @@ import Listing_page from "./components/Listing_page";
 import "./App.css";
 import PropertyForm from "./components/Propertyform";
 import ProductList from "./components/ProductList";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import OtpVerification from "./components/OtpVerification";
 
 // Loader function to fetch blog post data dynamically
 const blogPostLoader = async ({ params }) => {
@@ -24,6 +27,9 @@ const blogPostLoader = async ({ params }) => {
 const router = createBrowserRouter([
   { path: "/", element: <Homepage /> },
   { path: "/about", element: <Aboutus /> },
+  { path: "/login", element: <Login/> },
+  { path: "/signup", element: <Signup/> },
+  { path: "/otpverify", element: <OtpVerification/>},
   { path: "/blog", element: <Blog /> },
   {
     path: "/blog/:id",
