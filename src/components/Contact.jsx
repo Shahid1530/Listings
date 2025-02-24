@@ -1,216 +1,156 @@
+import { useState } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  // Handle Input Changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle Form Submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contacts/createContact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || "Something went wrong");
+
+      setSuccess("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-<>
-<div>
-  {/*==========================
-  TOPBAR PART START
-    ===========================*/}
-  <section id="wsus__topbar">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-xl-6 col-lg-7 d-none d-lg-block">
-          <ul className="wsus__topbar_left">
-            <li><a href="mailto:support@websolutionus.com"><i className="fal fa-envelope" aria-hidden="true" />
-                support@websolutionus.com</a></li>
-            <li><a href="callto:111-233-1273"><i className="fal fa-phone-alt" aria-hidden="true" />111-233-1273</a></li>
-          </ul>
-        </div>
-     
-      </div>
-    </div>
-  </section>
-  {/*==========================
-  TOPBAR PART END
-    ===========================*/}
-  {/*==========================
-  LOG IN POPUP START
-    ===========================*/}
-  <section id="wsus__login_popup">
-    <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">
-              Sign In</h5>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+    <>
+      <div>
+        
+        <Navbar />
+
+        <div id="breadcrumb_part" style={{ backgroundImage: "url(https://dirlist.websolutionus.com/uploads/website-images/banner-2021-08-31-09-49-39-2671.jpg)" }}>
+          <div className="bread_overlay">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-12 text-center text-white">
+                  <h4>Contact Us</h4>
+                  <nav style={{ "--bs-breadcrumb-divider": "'>'" }} aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                      <li className="breadcrumb-item"><a href="/">Home</a></li>
+                      <li className="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="modal-body">
-            <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li className="nav-item" role="presentation">
-                <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Login</button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Register</button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Forgot Password</button>
-              </li>
-            </ul>
-            <div className="tab-content" id="pills-tabContent">
-              <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <form id="loginFormSubmit">
-                  <input type="hidden" name="_token" defaultValue="OVKgoiBy67CAOS795E1tP9CewlhSjwBX99KggYWS" autoComplete="off" />                                    <input type="email" placeholder="Email *" name="email" />
-                  <input type="password" placeholder="Password *" name="password" />
-                  <button className="read_btn" id="loginSubmitBtn" type="submit"><i id="login-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />
-                    Login</button>
+        </div>
+
+        <section id="get_in_touch">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-5 col-md-6 col-lg-5">
+                <h2>Contact Information</h2>
+                <div className="contact_box">
+                  <div className="contact_box_icon">
+                    <i className="fal fa-phone-square-alt" />
+                  </div>
+                  <div className="contact_box_text">
+                    <p>(347) 430-9510<br />(587) 860-2590</p>
+                  </div>
+                </div>
+                <div className="contact_box">
+                  <div className="contact_box_icon">
+                    <i className="fas fa-envelope" />
+                  </div>
+                  <div className="contact_box_text">
+                    <p>support@websolutionus.com</p>
+                  </div>
+                </div>
+                <div className="contact_box">
+                  <div className="contact_box_icon">
+                    <i className="fal fa-map-marker-alt" />
+                  </div>
+                  <div className="contact_box_text">
+                    <p>95 South Park Avenue, New York, USA</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-xl-7 col-md-6 col-lg-7">
+                <h2>Contact Here</h2>
+
+                {error && <div className="alert alert-danger">{error}</div>}
+                {success && <div className="alert alert-success">{success}</div>}
+
+                <form id="contactForm" onSubmit={handleSubmit}>
+                  <div className="row">
+                    <div className="col-xl-6">
+                      <div className="contact_input">
+                        <input type="text" placeholder="Name" name="name" value={formData.name} onChange={handleChange} required />
+                      </div>
+                    </div>
+                    <div className="col-xl-6">
+                      <div className="contact_input">
+                        <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleChange} required />
+                      </div>
+                    </div>
+                    <div className="col-xl-6">
+                      <div className="contact_input">
+                        <input type="text" placeholder="Phone" name="phone" value={formData.phone} onChange={handleChange} required />
+                      </div>
+                    </div>
+                    <div className="col-xl-6">
+                      <div className="contact_input">
+                        <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} required />
+                      </div>
+                    </div>
+                    <div className="col-xl-12">
+                      <div className="contact_input">
+                        <textarea name="message" cols={3} rows={5} placeholder="Message" value={formData.message} onChange={handleChange} required />
+                      </div>
+                    </div>
+                    <div className="col-xl-12">
+                      <div className="contact_input">
+                        <button id="contactBtn" className="read_btn" type="submit" disabled={loading}>
+                          {loading ? <i className="fas fa-sync fa-spin" /> : "Send Message"}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
-              <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <form id="registerFormSubmit">
-                  <input type="hidden" name="_token" defaultValue="OVKgoiBy67CAOS795E1tP9CewlhSjwBX99KggYWS" autoComplete="off" />                                    <input type="text" placeholder="Name *" name="name" />
-                  <input type="email" placeholder="Email *" name="email" />
-                  <input type="password" placeholder="Password *" name="password" />
-                  <input type="password" placeholder="Confirm Password *" name="password_confirmation" />
-                  <button id="registerBtn" className="read_btn" type="button"> <i id="reg-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />
-                    Register</button>
-                </form>
-              </div>
-              <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <form id="forgetPassFormSubmit">
-                  <input type="hidden" name="_token" defaultValue="OVKgoiBy67CAOS795E1tP9CewlhSjwBX99KggYWS" autoComplete="off" />                                    <input type="email" placeholder="Email *" name="email" />
-                  <button id="forgetPassBtn" className="read_btn" type="submit"><i id="forget-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />
-                    Send Email</button>
-                </form>
-              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <Footer />
       </div>
-    </div>
-  </section>
-  {/*==========================
- LOG IN POPUP END
-    ===========================*/}
-  {/*==========================
-     MENU PART START
-    ===========================*/}
-  <Navbar/>
-  {/*==========================
-     MENU PART END
-    ===========================*/}
-  {/*==========================
-                                      BREADCRUMB PART START
-                              ===========================*/}
-  <div id="breadcrumb_part" style={{"background-image":"url(https://dirlist.websolutionus.com/uploads/website-images/banner-2021-08-31-09-49-39-2671.jpg)"}}>
-    <div className="bread_overlay">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 text-center text-white">
-            <h4>Contact Us</h4>
-            <nav style={{"--bs-breadcrumb-divider":"'>'"}} aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="https://demo.websolutionus.com/dirlist">
-                    Home </a></li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  Contact Us </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <section id="get_in_touch">
-    <div className="container">
-      <div className="row">
-        <div className="col-xl-5 col-md-6 col-lg-5">
-          <h2>Contact Information</h2>
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="contact_box">
-                <div className="contact_box_icon">
-                  <i className="fal fa-phone-square-alt" aria-hidden="true" />
-                </div>
-                <div className="contact_box_text">
-                  <p>(347) 430-9510<br />
-                    (587) 860-2590</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="contact_box">
-                <div className="contact_box_icon">
-                  <i className="fas fa-envelope" aria-hidden="true" />
-                </div>
-                <div className="contact_box_text">
-                  <p>support@websolutionus.com</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-12">
-              <div className="contact_box">
-                <div className="contact_box_icon">
-                  <i className="fal fa-map-marker-alt" aria-hidden="true" />
-                </div>
-                <div className="contact_box_text">
-                  <p /><p>95 South Park Avenue,  New York, USA</p><p />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-7 col-md-6 col-lg-7">
-          <h2>Contact Here</h2>
-          <form id="contactForm">
-            <input type="hidden" name="_token" defaultValue="OVKgoiBy67CAOS795E1tP9CewlhSjwBX99KggYWS" autoComplete="off" />                        <div className="row">
-              <div className="col-xl-6">
-                <div className="contact_input">
-                  <input type="text" placeholder="Name" defaultValue name="name" />
-                </div>
-              </div>
-              <div className="col-xl-6">
-                <div className="contact_input">
-                  <input type="email" defaultValue placeholder="Email" name="email" />
-                </div>
-              </div>
-              <div className="col-xl-6">
-                <div className="contact_input">
-                  <input type="text" defaultValue placeholder="Phone" name="phone" />
-                </div>
-              </div>
-              <div className="col-xl-6">
-                <div className="contact_input">
-                  <input type="text" name="subject" defaultValue placeholder="Subject" />
-                </div>
-              </div>
-              <div className="col-xl-12">
-                <div className="contact_input">
-                  <textarea name="message" cols={3} rows={5} placeholder="Message" defaultValue={""} />
-                </div>
-              </div>
-              <div className="col-md-12 mb-4">
-              </div>
-              <div className="col-xl-12">
-                <div className="contact_input">
-                  <button id="contactBtn" className="read_btn" type="submit"><i id="contact-spinner" className="loading-icon fas fa-sync fa-spin d-none" aria-hidden="true" />
-                    Send Message</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-     
-    </div>
-  </section>
-  {/*==========================
-                                  GET IN TOUCH END
-                              ===========================*/}
-  {/*==========================
-   FOOTER PART START
-    ===========================*/}
-<Footer/>
-  {/*==========================
-   FOOTER PART END
-    ===========================*/}
-  {/*=============SCROLL BTN==============*/}
-  <div className="scroll_btn ">
-    <i className="fas fa-chevron-up" aria-hidden="true" />
-  </div>
-  {/*=============SCROLL BTN==============*/}
-</div>
-</>
-  )
+    </>
+  );
 }

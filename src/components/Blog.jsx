@@ -1,7 +1,9 @@
+import { Link, useLoaderData } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { FaArrowRight } from "react-icons/fa";
 function Blog() {
+  const datas = useLoaderData()
   return (
     <>
     <div>
@@ -116,168 +118,31 @@ function Blog() {
     <div className="blog_part_overlay">
       <div className="container">
         <div className="row">
-          <div className="col-xl-4 col-md-6 col-lg-6">
+          {datas.map((data)=>(
+            <>
+              <div className="col-xl-4 col-md-6 col-lg-6">
             <div className="wsus__single_blog_2">
               <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="green" href="">Lifestyle</a>
+                <img src={data.image}  alt="blog" className="img-fluid w-100" />
               </div>
               <div className="wsus__single_blog_2_text">
                 <ul className="d-flex flex-wrap">
                   <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
+                 
+                    {data.date.split("T")[0]}
                   </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
+              
                 </ul>
-                <a href="" className="title">Simple Ways To Reduce Your Unwanted Wrinkles!</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin  always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
+                <a href="" className="title">{data.title}</a>
+                <p>{(data.description).slice(0,100)}</p>
+                <Link to = {`/blog/${data._id}`} className="read_btn_2" >Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></Link>
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-md-6 col-lg-6">
-            <div className="wsus__single_blog_2">
-              <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="red" href="">Lifestyle</a>
-              </div>
-              <div className="wsus__single_blog_2_text">
-                <ul className="d-flex flex-wrap">
-                  <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
-                  </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
-                </ul>
-                <a href="" className="title">10 Reasons To Start Your Own, Profitable Website!</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin doesn&amp;amp;amp;#039;t always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-6 col-lg-6">
-            <div className="wsus__single_blog_2">
-              <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="orange" href="">Fitness</a>
-              </div>
-              <div className="wsus__single_blog_2_text">
-                <ul className="d-flex flex-wrap">
-                  <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
-                  </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
-                </ul>
-                <a href="" className="title">9 Things I Love About Shaving My Head During Quarantine</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin doesn&amp;#039;t always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-6 col-lg-6">
-            <div className="wsus__single_blog_2">
-              <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="green" href="">Fitness</a>
-              </div>
-              <div className="wsus__single_blog_2_text">
-                <ul className="d-flex flex-wrap">
-                  <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
-                  </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
-                </ul>
-                <a href="" className="title">Level up your live streams with automated captions and more</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin doesn&amp;#039;t always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-6 col-lg-6">
-            <div className="wsus__single_blog_2">
-              <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="red" href="">Lifestyle</a>
-              </div>
-              <div className="wsus__single_blog_2_text">
-                <ul className="d-flex flex-wrap">
-                  <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
-                  </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
-                </ul>
-                <a href="" className="title">Apple iMac with Retina 5K display review</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin doesn&amp;#039;t always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-6 col-lg-6">
-            <div className="wsus__single_blog_2">
-              <div className="wsus__single_blog_2_img">
-                <img src="" alt="blog" className="img-fluid w-100" />
-                <a className="orange" href="">Lifestyle</a>
-              </div>
-              <div className="wsus__single_blog_2_text">
-                <ul className="d-flex flex-wrap">
-                  <li>
-                    <span>
-                      <img src="" alt="icon" className="img-fluid" />
-                    </span>
-                    Oct, 18 2021
-                  </li>
-                  <li>
-                    <span>
-                      <img src="" alt="user" className="img-fluid" />
-                    </span>
-                    By Admin
-                  </li>
-                </ul>
-                <a href="" className="title">A Skin Cream That’s Proven To Work in Skin</a>
-                <p>Reducing unwanted wrinkles is a common goal for many individuals seeking to maintain youthful and healthy-looking skin. Fortunately, achieving smoother, more radiant skin doesn&amp;amp;#039;t always require elaborate treatments or expensive products.</p>
-                <a className="read_btn_2" href="">Read More  <FaArrowRight  style={{margin:"5px"}}className="fal fa-long-arrow-right" aria-hidden="true" /></a>
-              </div>
-            </div>
-          </div>
+            </>
+          ))}
+        
+        
           <div className="col-12">
             <div id="pagination">
               <nav aria-label>

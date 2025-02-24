@@ -1,12 +1,27 @@
-import { Link } from "react-router-dom";
+import { FaLock, FaUnlock } from "react-icons/fa";
+import { Link, Navigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 function Navbar() {
+  const [authState,setAuthstate] = useState(false)
+  useEffect(()=>{
+    if(localStorage.getItem("token"))
+    setAuthstate(true)
+    else
+    setAuthstate(false)
+  },[])
+function Logout(){
+  localStorage.removeItem("token");
+  const location = useLocation();
+
+      // Redirect to login and preserve intended location
+      return <Navigate to="/" state={{ from: location }} replace />;
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg main_menu main_menu_2 menu_fix">
         <div className="container-fluid">
-          <a className="navbar-brand" href=" ">
-            <img src=" " alt="" />
-          </a>
+      
           <button
             className="navbar-toggler"
             type="button"
@@ -98,7 +113,7 @@ function Navbar() {
             </ul>
             <ul className="right_menu">
               <li className="nav-item signin">
-                <Link
+                {authState? ( <>  <Link
                   to="/add"
                   className="common_btn_2"
                   data-bs-toggle="modal"
@@ -139,6 +154,30 @@ function Navbar() {
                   </svg>
                   Add Listing
                 </Link>
+                <a
+                  to="/login"
+                  className="common_btn_2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  href=" "
+                  style={{margin:"10px"}}
+                  onClick={Logout}
+                >
+                 <FaUnlock style={{margin:"10px"}}/>
+                  Log out
+                </a>
+                </>):( <Link
+                  to="/login"
+                  className="common_btn_2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  href=" "
+                  
+                >
+                 <FaLock style={{margin:"10px"}}/>
+                  Login
+                </Link>)}
+             
               </li>
             </ul>
           </div>

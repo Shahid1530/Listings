@@ -4,6 +4,7 @@ import { FaBusinessTime, FaHeart ,FaLocationArrow,FaPhone,FaUser, FaUsers} from 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { FaAccessibleIcon, FaAmazon } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 function Listing_page() {
   const [products, setProducts] = useState([]);
  
@@ -129,106 +130,7 @@ function Listing_page() {
     <div className="container list_padding">
       <div className="row">
         <div className="col-xl-3 col-lg-4">
-          <form action="https://demo.websolutionus.com/dirlist/search-listing" method="GET">
-            <div className="listing_grid_sidbar">
-              <div className="sidebar_line">
-                <input type="text" name="search" placeholder="Search..." defaultValue />
-                <button type="submit"><i className="fas fa-search" aria-hidden="true" /></button>
-              </div>
-              <div className="sidebar_line_select">
-                <select className="select_2 select2-hidden-accessible" name="category_slug" data-select2-id="select2-data-1-dslj" tabIndex={-1} aria-hidden="true">
-                  <option value data-select2-id="select2-data-3-xd3n">All Categories</option>
-                  <option value="apartments">
-                    Apartments
-                  </option>
-                  <option value="house">
-                    House
-                  </option>
-                  <option value="office">
-                    Office
-                  </option>
-                  <option value="commercial">
-                    Commercial
-                  </option>
-                  <option value="parking-lot">
-                    Parking Lot
-                  </option>
-                  <option value="land">
-                    Land
-                  </option>
-                </select><span className="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-2-a889" style={{"width":"134.4px"}}><span className="selection"><span className="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabIndex={0} aria-disabled="false" aria-labelledby="select2-category_slug-st-container" aria-controls="select2-category_slug-st-container"><span className="select2-selection__rendered" id="select2-category_slug-st-container" role="textbox" aria-readonly="true" title="All Categories">All Categories</span><span className="select2-selection__arrow" role="presentation"><b role="presentation" /></span></span></span><span className="dropdown-wrapper" aria-hidden="true" /></span>
-              </div>
-              <div className="sidebar_line_select">
-                <select className="select_2 select2-hidden-accessible" name="location" data-select2-id="select2-data-4-7lak" tabIndex={-1} aria-hidden="true">
-                  <option value data-select2-id="select2-data-6-lcyx">All Location
-                  </option>
-                  <option value={2}>London
-                  </option>
-                  <option value={3}>Paris
-                  </option>
-                  <option value={4}>HongKong
-                  </option>
-                  <option value={5}>Moscow
-                  </option>
-                  <option value={6}>Tokyo
-                  </option>
-                  <option value={13}>California
-                  </option>
-                  <option value={14}>Florida
-                  </option>
-                  <option value={15}>Washington DC
-                  </option>
-                </select><span className="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-5-qpsj" style={{"width":"148px"}}><span className="selection"><span className="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabIndex={0} aria-disabled="false" aria-labelledby="select2-location-hl-container" aria-controls="select2-location-hl-container"><span className="select2-selection__rendered" id="select2-location-hl-container" role="textbox" aria-readonly="true" title="All Location
-                                  ">All Location
-                      </span><span className="select2-selection__arrow" role="presentation"><b role="presentation" /></span></span></span><span className="dropdown-wrapper" aria-hidden="true" /></span>
-              </div>
-              <div className="wsus__pro_check">
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="accepts-credit-cards" name="aminity[]" defaultValue={7} />
-                  <label className="form-check-label" htmlFor="accepts-credit-cards">
-                    Accepts Credit Cards
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="alcohol" name="aminity[]" defaultValue={4} />
-                  <label className="form-check-label" htmlFor="alcohol">
-                    Alcohol
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="bike-parking" name="aminity[]" defaultValue={3} />
-                  <label className="form-check-label" htmlFor="bike-parking">
-                    Bike Parking
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="elevator-in-building" name="aminity[]" defaultValue={2} />
-                  <label className="form-check-label" htmlFor="elevator-in-building">
-                    Elevator In Building
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="free-coffee-and-tea" name="aminity[]" defaultValue={6} />
-                  <label className="form-check-label" htmlFor="free-coffee-and-tea">
-                    Free coffee and tea
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="good-for-kids" name="aminity[]" defaultValue={1} />
-                  <label className="form-check-label" htmlFor="good-for-kids">
-                    Good for kids
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input className="form-check-input" type="checkbox" id="reservations" name="aminity[]" defaultValue={5} />
-                  <label className="form-check-label" htmlFor="reservations">
-                    Reservations
-                  </label>
-                </div>
-              </div>
-              <input type="hidden" id="page_type" name="page_type" defaultValue="list_view" />
-              <button className="read_btn" type="submit">Search</button>
-            </div></form>
+         
         </div>
         <div className="col-xl-9 col-lg-8">
           <div className="row">
@@ -252,7 +154,7 @@ function Listing_page() {
                    <div className="featured_listing_item_text">
                    
                     
-                     <a className="title" href="">{product.name}</a>
+                     <Link to={`/listing/${product._id}`} className="title" href="">{product.name}</Link>
                      <ul>
                        <li><FaPhone className="fas fa-phone-alt" style={{margin:"5px"}}  aria-hidden="true" />
                          Call : {product.contact}</li>
